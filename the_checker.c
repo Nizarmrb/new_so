@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                      :+:      :+:    :+:   */
+/*   the_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/25 22:26:45 by nelmrabe         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:11:41 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void	parsing_map(t_map *map)
 	map->check_coin = map->coin;
 	if (map->player != 1 || map->coin < 1 || map->exit != 1)
 		error(map);
-	if (!valid_path(map, map->player_y, map->player_x))
+	if (!path_validation(map, map->player_y, map->player_x))
 		error(map);
 }

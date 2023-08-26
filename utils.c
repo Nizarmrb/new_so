@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/25 23:08:14 by nelmrabe         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:22:32 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,29 @@ int	ft_close(t_map *map)
 	(void)map;
 	exit(0);
 }
-void	ft_putchar(char c, int fd)
+void	ft_putchar(char c)
 {
-	write(fd, &c, 1);
+	write(1, &c, 1);
 }
 
-void	ft_putnbr(int n, int fd)
+void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 	{
-		write(fd, "-2147483648", 11);
+		write(1, "-2147483648", 11);
 		return ;
 	}
 	if (n < 0)
 	{
-		ft_putchar('-', fd);
+		ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 0 && n <= 9)
-		ft_putchar((n + '0'), fd);
+		ft_putchar((n + '0'));
 	if (n >= 10)
 	{
-		ft_putnbr(n / 10, fd);
-		ft_putnbr(n % 10, fd);
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
 }
 

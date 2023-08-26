@@ -6,7 +6,7 @@
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/25 22:26:54 by nelmrabe         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:21:48 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	manage_keybord(int keycode, t_map *map)
 	{
 		map->moves = map->moves + 1;
 		write(1, "Steps counting: ", 16);
-		ft_putnbr(map->moves, 1);
+		ft_putnbr(map->moves);
 		write(1, "\n", 1);
 	}
 	return (1);
@@ -77,7 +77,7 @@ void	mlx_window(t_map *map)
 	"maps/p_right.xpm", &map->img_width, &map->img_height);
 	draw_game(map);
 	mlx_key_hook(map->m_window, &manage_keybord, map);
-	mlx_hook(map->m_window, 17, 0, &close, map);
+	mlx_hook(map->m_window, 17, 0, &ft_close, map);
 	mlx_loop(map->mlx);
 }
 

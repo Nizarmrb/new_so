@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRC = get_next_line.c get_next_line_utils.c so_long.c ft_split.c map.c tools.c key_codes.c map_checker.c
+SRC = get_next_line.c get_next_line_utils.c so_long.c ft_split.c map.c utils.c buttons.c the_checker.c
 
 CFLAGS = -Wall -Wextra -Werror -Imlx
 
@@ -11,7 +11,7 @@ all : $(NAME)
 
 
 $(NAME): $(OBJ)
-		$(CC) $(OBJ) -framework OpenGL -framework AppKit -o $(NAME)
+		$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 bonus : $(NAME_BONUS)
 

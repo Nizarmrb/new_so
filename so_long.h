@@ -6,7 +6,7 @@
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:50:52 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/25 23:08:39 by nelmrabe         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:21:38 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-// # include <mlx.h>
-#include <stdio.h>
+# include <mlx.h>
+# include <stdio.h>
 
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
 
+# define KEY_D 2
+# define KEY_A 0
+# define KEY_W 13
+# define KEY_S 1
+
+# define KEY_LEFT 123
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_RIGHT 124
-# define KEY_LEFT 123
-
-# define KEY_A 0
-# define KEY_D 2
-# define KEY_S 1
-# define KEY_W 13
 
 typedef struct s_map
 {
@@ -68,9 +68,9 @@ char	*invalid_fd(char *string, char **static_string);
 char	**ft_split(char *s, char c);
 char	*get_first(char *static_string);
 char	*get_last(char *static_string);
-void	ft_putnbr(int n, int fd);
+void	ft_putnbr(int n);
 int		valid_validation(t_map *map, int y, int x);
-void	path(t_map *map, int y, int x);
+int		path_validation(t_map *map, int y, int x);
 void	valid_map(int ac, char **av);
 void	error(t_map *map);
 void	parsing_map(t_map *map);
