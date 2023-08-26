@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/26 13:22:32 by nelmrabe         ###   ########.fr       */
+/*   Created: 2023/06/12 01:34:23 by nelmrabe          #+#    #+#             */
+/*   Updated: 2023/08/26 21:19:40 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_close(t_map *map)
 	(void)map;
 	exit(0);
 }
+
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -54,4 +55,3 @@ void	ft_putnbr(int n)
 		ft_putnbr(n % 10);
 	}
 }
-

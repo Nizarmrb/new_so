@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/26 13:21:48 by nelmrabe         ###   ########.fr       */
+/*   Created: 2023/06/12 01:10:23 by nelmrabe          #+#    #+#             */
+/*   Updated: 2023/08/26 22:02:54 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,27 @@ int	calculator(int number)
 	return (calculator);
 }
 
-int	manage_keybord(int keycode, t_map *map)
+int	ft_keybord(int key, t_map *map)
 {
-	int	print;
+	int	put;
 
-	print = 0;
-	if (keycode == 53)
+	put = 0;
+	if (key == 53)
 		exit(0);
-	else if (keycode == KEY_UP || keycode == KEY_W)
-		print = map_key_up(map);
-	else if (keycode == KEY_DOWN || keycode == KEY_S)
-		print = map_key_down(map);
-	else if (keycode == KEY_RIGHT || keycode == KEY_D)
-		print = map_key_right(map);
-	else if (keycode == KEY_LEFT || keycode == KEY_A)
-		print = map_key_left(map);
-	if (print == 1)
+	else if (key == 126 || key == 13)
+		put = map_key_up(map);
+	else if (key == 125 || key == 1)
+		put = map_key_down(map);
+	else if (key == 124 || key == 2)
+		put = map_key_right(map);
+	else if (key == 123 || key == 0)
+		put = map_key_left(map);
+	if (put == 1)
 	{
 		map->moves = map->moves + 1;
 		write(1, "Steps counting: ", 16);
 		ft_putnbr(map->moves);
-		write(1, "\n", 1);
+		write(1, "\r", 1);
 	}
 	return (1);
 }
@@ -76,7 +76,7 @@ void	mlx_window(t_map *map)
 	map->p_player = mlx_xpm_file_to_image(map->mlx, \
 	"maps/p_right.xpm", &map->img_width, &map->img_height);
 	draw_game(map);
-	mlx_key_hook(map->m_window, &manage_keybord, map);
+	mlx_key_hook(map->m_window, &ft_keybord, map);
 	mlx_hook(map->m_window, 17, 0, &ft_close, map);
 	mlx_loop(map->mlx);
 }
@@ -90,8 +90,6 @@ int	main(int argc, char **argv)
 	map = ft_calloc(1, sizeof(t_map));
 	valid_map(argc, argv);
 	fd = open(argv[1], O_RDONLY);
-	// if (fd < 0 || !map)
-	// 	return (0);
 	while (1)
 	{
 		buffer = get_next_line(fd);

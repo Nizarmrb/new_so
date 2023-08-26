@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_codes.c                                        :+:      :+:    :+:   */
+/*   buttons.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 01:21:23 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/25 22:26:39 by nelmrabe         ###   ########.fr       */
+/*   Created: 2023/06/12 01:16:53 by nelmrabe          #+#    #+#             */
+/*   Updated: 2023/08/26 21:18:31 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	draw_game(t_map *map)
 
 int	map_key_up(t_map *map)
 {
-	if (map->land[map->player_y - 1][map->player_x] != '1' && map->land[map->player_y
-		- 1][map->player_x] != 'E')
+	if (map->land[map->player_y - 1][map->player_x] != '1'
+		&& map->land[map->player_y - 1][map->player_x] != 'E')
 	{
 		if (map->land[map->player_y - 1][map->player_x] == 'C')
 			map->check_coin--;
@@ -55,15 +55,16 @@ int	map_key_up(t_map *map)
 		draw_game(map);
 		return (1);
 	}
-	if (map->land[map->player_y - 1][map->player_x] == 'E' && map->check_coin == 0)
+	if (map->land[map->player_y - 1][map->player_x] == 'E'
+		&& map->check_coin == 0)
 		end_game();
 	return (0);
 }
 
 int	map_key_down(t_map *map)
 {
-	if (map->land[map->player_y + 1][map->player_x] != '1' && map->land[map->player_y
-		+ 1][map->player_x] != 'E')
+	if (map->land[map->player_y + 1][map->player_x] != '1'
+		&& map->land[map->player_y + 1][map->player_x] != 'E')
 	{
 		if (map->land[map->player_y + 1][map->player_x] == 'C')
 			map->check_coin--;
@@ -74,14 +75,16 @@ int	map_key_down(t_map *map)
 		draw_game(map);
 		return (1);
 	}
-	if (map->land[map->player_y + 1][map->player_x] == 'E' && map->check_coin == 0)
+	if (map->land[map->player_y + 1][map->player_x] == 'E'
+		&& map->check_coin == 0)
 		end_game();
 	return (0);
 }
 
 int	map_key_left(t_map *map)
 {
-	if (map->land[map->player_y][map->player_x - 1] != '1' && map->land[map->player_y][map->player_x
+	if (map->land[map->player_y][map->player_x - 1] != '1'
+		&& map->land[map->player_y][map->player_x
 		- 1] != 'E')
 	{
 		if (map->land[map->player_y][map->player_x - 1] == 'C')
@@ -95,14 +98,16 @@ int	map_key_left(t_map *map)
 		draw_game(map);
 		return (1);
 	}
-	if (map->land[map->player_y][map->player_x - 1] == 'E' && map->check_coin == 0)
+	if (map->land[map->player_y][map->player_x - 1] == 'E'
+		&& map->check_coin == 0)
 		end_game();
 	return (0);
 }
 
 int	map_key_right(t_map *map)
 {
-	if (map->land[map->player_y][map->player_x + 1] != '1' && map->land[map->player_y][map->player_x
+	if (map->land[map->player_y][map->player_x + 1] != '1'
+		&& map->land[map->player_y][map->player_x
 		+ 1] != 'E')
 	{
 		if (map->land[map->player_y][map->player_x + 1] == 'C')
@@ -116,7 +121,8 @@ int	map_key_right(t_map *map)
 		draw_game(map);
 		return (1);
 	}
-	if (map->land[map->player_y][map->player_x + 1] == 'E' && map->check_coin == 0)
+	if (map->land[map->player_y][map->player_x + 1] == 'E'
+		&& map->check_coin == 0)
 		end_game();
 	return (0);
 }

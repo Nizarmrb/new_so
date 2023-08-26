@@ -6,10 +6,9 @@
 /*   By: nelmrabe <nelmrabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:50:52 by nelmrabe          #+#    #+#             */
-/*   Updated: 2023/08/26 13:21:38 by nelmrabe         ###   ########.fr       */
+/*   Updated: 2023/08/26 21:19:23 by nelmrabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -18,27 +17,15 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <mlx.h>
-# include <stdio.h>
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
 
-# define KEY_D 2
-# define KEY_A 0
-# define KEY_W 13
-# define KEY_S 1
-
-# define KEY_LEFT 123
-# define KEY_UP 126
-# define KEY_DOWN 125
-# define KEY_RIGHT 124
-
 typedef struct s_map
 {
 	void	*p_wall;
-	// int		pix;
+	int		pix;
 	void	*p_coin;
 	void	*p_player;
 	void	*p_exit;

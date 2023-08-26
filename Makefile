@@ -1,27 +1,20 @@
 NAME = so_long
 
+CFLAGS = -Wall -Wextra -Werror
 SRC = get_next_line.c get_next_line_utils.c so_long.c ft_split.c map.c utils.c buttons.c the_checker.c
 
-CFLAGS = -Wall -Wextra -Werror -Imlx
-
 OBJ = ${SRC:.c=.o}
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 all : $(NAME)
 
 
 $(NAME): $(OBJ)
-		$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-
-bonus : $(NAME_BONUS)
-
-$(NAME_BONUS): $(OBJ_BONUS)
-				cc $(CFLAGS) $^ -o $(NAME_BONUS)
+		cc $(OBJ) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean : 
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME) $(NAME_BONUS)
+	rm -rf $(NAME)
 
 re : fclean all
